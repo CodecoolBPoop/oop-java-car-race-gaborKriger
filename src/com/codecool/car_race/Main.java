@@ -24,27 +24,30 @@ public class Main {
         race.simulateRace();
         race.printRaceResults();
 
-        test();
+        nameTest();
     }
 
-    private static void test() {
+    private static void nameTest() {
         for (int i = 0; i < 10; i++) {
             Car car = new Car();
-            System.out.println("||Test|| car name: " + car.getName());
+            System.out.print("||Test|| car name: " + car.getName());
+            System.out.println(" == speed: " + car.getNormalSpeed() + "km/h");
         }
 
         System.out.println();
 
         for (int i = 0; i < 10; i++) {
             Motorcycle motor = new Motorcycle();
-            System.out.println("||Test|| motor name: " + motor.getName());
+            System.out.print("||Test|| motor name: " + motor.getName());
+            System.out.println(" == speed: " + motor.getNormalSpeed() + "km/h");
         }
 
         System.out.println();
 
         for (int i = 0; i < 10; i++) {
             Truck truck = new Truck();
-            System.out.println("||Test|| truck name: " + truck.getName());
+            System.out.print("||Test|| truck name: " + truck.getName());
+            System.out.println(" == speed: " + truck.getNormalSpeed() + "km/h");
         }
 
         System.out.println();

@@ -5,19 +5,19 @@ public abstract class Vehicle {
     private int normalSpeed;
     private int distanceTraveled;
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-    public int getNormalSpeed() {
+    int getNormalSpeed() {
         return normalSpeed;
     }
 
-    public void setNormalSpeed(int normalSpeed) {
+    void setNormalSpeed(int normalSpeed) {
         this.normalSpeed = normalSpeed;
     }
 

@@ -4,7 +4,15 @@ import java.util.Random;
 
 public class Car extends Vehicle implements PrepareForLap {
 
+    private final int MINIMUM_SPEED = 80;
+    private final int MAXIMUM_SPEED = 110;
+
     public Car() {
+        setCarName();
+        setCarNormalSpeed();
+    }
+
+    private void setCarName() {
         String[] names = new String[]{
                 "Vision", "Intro", "Moonlight", "Vanish", "Bullet",
                 "Voyage", "Enigma", "Vagabond", "Ivory", "Deputy",
@@ -18,6 +26,12 @@ public class Car extends Vehicle implements PrepareForLap {
         int firstNameIndex = new Random().nextInt(names.length);
         int lastNameIndex = new Random().nextInt(names.length);
         setName(names[firstNameIndex] + " " + names[lastNameIndex]);
+    }
+
+    private void setCarNormalSpeed() {
+        Random random = new Random();
+        int speed = random.nextInt((MAXIMUM_SPEED - MINIMUM_SPEED) + 1) + MINIMUM_SPEED;
+        setNormalSpeed(speed);
     }
 
     @Override

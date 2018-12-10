@@ -6,9 +6,15 @@ import java.util.Random;
 
 public class Truck extends Vehicle implements PrepareForLap {
 
+    private final int NORMAL_SPEED = 100;
     private final static List<Integer> names = new ArrayList<>();
 
     public Truck() {
+        setTruckName();
+        setNormalSpeed(NORMAL_SPEED);
+    }
+
+    private void setTruckName() {
         Random random = new Random();
         boolean checkName = true;
         while (checkName) {
@@ -19,8 +25,6 @@ public class Truck extends Vehicle implements PrepareForLap {
                 checkName = false;
             }
         }
-
-
     }
 
     @Override
