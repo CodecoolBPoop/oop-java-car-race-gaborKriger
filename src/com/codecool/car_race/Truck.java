@@ -1,15 +1,30 @@
 package com.codecool.car_race;
 
-public class Truck extends Vehicle implements PrepareForLap, MoveForAnHour {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
+public class Truck extends Vehicle implements PrepareForLap {
 
-    @Override
-    public void prepareForLap(Race race) {
+    private final static List<Integer> names = new ArrayList<>();
+
+    public Truck() {
+        Random random = new Random();
+        boolean checkName = true;
+        while (checkName) {
+            int nameIndex = random.nextInt(1001);
+            if (!names.contains(nameIndex)) {
+                names.add(nameIndex);
+                setName(String.valueOf(nameIndex));
+                checkName = false;
+            }
+        }
+
 
     }
 
     @Override
-    public void moveForAnHour() {
+    public void prepareForLap(Race race) {
 
     }
 }

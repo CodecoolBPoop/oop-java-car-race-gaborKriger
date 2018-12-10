@@ -1,23 +1,16 @@
 package com.codecool.car_race;
 
-public class Motorcycle extends Vehicle implements PrepareForLap, MoveForAnHour {
-    private boolean rain;
+public class Motorcycle extends Vehicle implements PrepareForLap {
 
-    public boolean isRain() {
-        return rain;
-    }
+    private static int objectCount;
 
-    public void setRain(boolean rain) {
-        this.rain = rain;
+    public Motorcycle() {
+        objectCount++;
+        setName("Motorcycle " + objectCount);
     }
 
     @Override
     public void prepareForLap(Race race) {
-
-    }
-
-    @Override
-    public void moveForAnHour() {
 
     }
 }

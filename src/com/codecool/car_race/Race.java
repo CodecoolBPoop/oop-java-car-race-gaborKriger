@@ -1,6 +1,6 @@
 package com.codecool.car_race;
 
-class Race {
+class Race implements MoveForAnHour {
 
     void simulateRace() {
     }
@@ -8,4 +8,8 @@ class Race {
     void printRaceResults() {
     }
 
+    @Override
+    public void moveForAnHour() {
+
+    }
 }

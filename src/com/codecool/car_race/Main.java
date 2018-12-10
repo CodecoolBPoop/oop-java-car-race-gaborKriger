@@ -23,5 +23,30 @@ public class Main {
 
         race.simulateRace();
         race.printRaceResults();
+
+        test();
+    }
+
+    private static void test() {
+        for (int i = 0; i < 10; i++) {
+            Car car = new Car();
+            System.out.println("||Test|| car name: " + car.getName());
+        }
+
+        System.out.println();
+
+        for (int i = 0; i < 10; i++) {
+            Motorcycle motor = new Motorcycle();
+            System.out.println("||Test|| motor name: " + motor.getName());
+        }
+
+        System.out.println();
+
+        for (int i = 0; i < 10; i++) {
+            Truck truck = new Truck();
+            System.out.println("||Test|| truck name: " + truck.getName());
+        }
+
+        System.out.println();
     }
 }
