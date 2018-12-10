@@ -1,11 +1,14 @@
 package com.codecool.car_race;
 
+import static com.codecool.car_race.Main.vehicles;
 import java.util.Random;
 
 public class Car extends Vehicle implements PrepareForLap {
 
     private final int MINIMUM_SPEED = 80;
     private final int MAXIMUM_SPEED = 110;
+    private final int MAXIMUM_SPEED_THEN_TRUCK_BREAK_DOWNS = 75;
+
 
     public Car() {
         setCarName();
@@ -35,7 +38,15 @@ public class Car extends Vehicle implements PrepareForLap {
     }
 
     @Override
-    public void prepareForLap(Race race) {
-
+    public void prepareForLap() {
+        int breakdownTurnsLeft = 0;
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle instanceof Truck) {
+                breakdownTurnsLeft += ((Truck) vehicle).getBreakdownTurnsLeft();
+            }
+        }
+        if (breakdownTurnsLeft > 0) {
+            setNormalSpeed(MAXIMUM_SPEED_THEN_TRUCK_BREAK_DOWNS);
+        }
     }
 }

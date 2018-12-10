@@ -1,12 +1,24 @@
 package com.codecool.car_race;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
+    static List<Vehicle> vehicles = new ArrayList<>();
 
     /**
      * Creates all the vehicles that will be part of this race.
      */
-    private static void createVehicles(Race race) {
+    private static void createVehicles() {
+        for (int i = 0; i < 10; i++) {
+            Car car = new Car();
+            vehicles.add(car);
+            Motorcycle motorcycle = new Motorcycle();
+            vehicles.add(motorcycle);
+            Truck truck = new Truck();
+            vehicles.add(truck);
+        }
     }
 
     /**
@@ -19,15 +31,16 @@ public class Main {
      */
     public static void main(String[] args) {
         Race race = new Race();
-        createVehicles(race);
+        createVehicles();
 
         race.simulateRace();
         race.printRaceResults();
 
-        nameTest();
+        //constructorTest();
+        //vehicleTest();
     }
 
-    private static void nameTest() {
+    private static void constructorTest() {
         for (int i = 0; i < 10; i++) {
             Car car = new Car();
             System.out.print("||Test|| car name: " + car.getName());
@@ -51,5 +64,12 @@ public class Main {
         }
 
         System.out.println();
+    }
+
+    private static void vehicleTest() {
+        for (Vehicle vehicle : vehicles) {
+            System.out.print("||Test|| Name: " + vehicle.getName());
+            System.out.println(" == speed: " + vehicle.getNormalSpeed() + "km/h");
+        }
     }
 }

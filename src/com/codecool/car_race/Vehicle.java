@@ -25,7 +25,7 @@ public abstract class Vehicle {
         return distanceTraveled;
     }
 
-    public void setDistanceTraveled(int distanceTraveled) {
-        this.distanceTraveled = distanceTraveled;
+    void setDistanceTraveled(int traveled) {
+        this.distanceTraveled += traveled;
     }
 }

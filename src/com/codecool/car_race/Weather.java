@@ -3,6 +3,7 @@ package com.codecool.car_race;
 import java.util.Random;
 
 public class Weather {
+
     private boolean isRaining;
 
     public Weather() {
@@ -15,7 +16,7 @@ public class Weather {
         }
     }
 
-    public boolean isRaining() {
+    boolean isRaining() {
         return isRaining;
     }
 

@@ -5,5 +5,5 @@ public interface PrepareForLap {
     /**
      * Setup the actual speed used for the current lap
      */
-    void prepareForLap(Race race);
+    void prepareForLap();
 }
