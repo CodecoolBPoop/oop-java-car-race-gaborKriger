@@ -22,12 +22,36 @@ class Race {
                     moveForAnHour(vehicle);
                 }
             }
+            printMomentaryPosition(i);
         }
+        System.out.println();
     }
 
     private void moveForAnHour(Vehicle vehicle) {
         int traveled = vehicle.getNormalSpeed();
         vehicle.setDistanceTraveled(traveled);
+    }
+
+    private void printMomentaryPosition(int i) {
+        vehicles.sort(Comparator.comparing(Vehicle::getDistanceTraveled).reversed());
+
+        Vehicle first = vehicles.get(0);
+
+        String type = "";
+
+        if (first instanceof Car) {
+            type = "car";
+        }
+        if (first instanceof Motorcycle) {
+            type = "motorcycle";
+        }
+        if (first instanceof Truck) {
+            type = "truck";
+        }
+        System.out.println(i + "round "
+                            + "1st (" + type + "), name: "
+                            + first.getName()
+                            + " traveled: " + first.getDistanceTraveled() + "km");
     }
 
     void printRaceResults() {
@@ -36,18 +60,18 @@ class Race {
         int place = 1;
         for (Vehicle vehicle : vehicles) {
             if (vehicle instanceof Car) {
-                System.out.println(place + " was car, name: "
-                        + vehicle.getName() + " traveled: "
+                System.out.println(place + " was car, name: \t"
+                        + vehicle.getName() + " traveled: \t"
                         + vehicle.getDistanceTraveled() + " km");
             }
             if (vehicle instanceof Motorcycle) {
-                System.out.println(place + " was motor, name: "
-                        + vehicle.getName() + " traveled: "
+                System.out.println(place + " was motor, name: \t"
+                        + vehicle.getName() + " traveled: \t"
                         + vehicle.getDistanceTraveled() + " km");
             }
             if (vehicle instanceof Truck) {
-                System.out.println(place + " was truck, name: "
-                        + vehicle.getName() + " traveled: "
+                System.out.println(place + " was truck, name: \t"
+                        + vehicle.getName() + " traveled: \t"
                         + vehicle.getDistanceTraveled() + " km");
             }
             place++;
