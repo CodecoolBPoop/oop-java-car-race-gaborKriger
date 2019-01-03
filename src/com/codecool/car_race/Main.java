@@ -1,23 +1,19 @@
 package com.codecool.car_race;
 
-
-import java.util.ArrayList;
-import java.util.List;
+import com.codecool.car_race.vehicles.Car;
+import com.codecool.car_race.vehicles.Motorcycle;
+import com.codecool.car_race.vehicles.Truck;
 
 public class Main {
-    static List<Vehicle> vehicles = new ArrayList<>();
 
     /**
      * Creates all the vehicles that will be part of this race.
      */
-    private static void createVehicles() {
+    private static void createVehicles(Race race) {
         for (int i = 0; i < 10; i++) {
-            Car car = new Car();
-            vehicles.add(car);
-            Motorcycle motorcycle = new Motorcycle();
-            vehicles.add(motorcycle);
-            Truck truck = new Truck();
-            vehicles.add(truck);
+            race.registerRacer(new Car());
+            race.registerRacer(new Motorcycle());
+            race.registerRacer(new Truck());
         }
     }
 
@@ -31,45 +27,9 @@ public class Main {
      */
     public static void main(String[] args) {
         Race race = new Race();
-        createVehicles();
+        createVehicles(race);
 
         race.simulateRace();
         race.printRaceResults();
-
-        //constructorTest();
-        //vehicleTest();
-    }
-
-    private static void constructorTest() {
-        for (int i = 0; i < 10; i++) {
-            Car car = new Car();
-            System.out.print("||Test|| car name: " + car.getName());
-            System.out.println(" == speed: " + car.getNormalSpeed() + "km/h");
-        }
-
-        System.out.println();
-
-        for (int i = 0; i < 10; i++) {
-            Motorcycle motor = new Motorcycle();
-            System.out.print("||Test|| motor name: " + motor.getName());
-            System.out.println(" == speed: " + motor.getNormalSpeed() + "km/h");
-        }
-
-        System.out.println();
-
-        for (int i = 0; i < 10; i++) {
-            Truck truck = new Truck();
-            System.out.print("||Test|| truck name: " + truck.getName());
-            System.out.println(" == speed: " + truck.getNormalSpeed() + "km/h");
-        }
-
-        System.out.println();
-    }
-
-    private static void vehicleTest() {
-        for (Vehicle vehicle : vehicles) {
-            System.out.print("||Test|| Name: " + vehicle.getName());
-            System.out.println(" == speed: " + vehicle.getNormalSpeed() + "km/h");
-        }
     }
 }
